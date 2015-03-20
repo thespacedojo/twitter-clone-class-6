@@ -1,0 +1,25 @@
+<template name="tweets">
+    <div class="col-md-8 col-lg-6">
+      <ul id="tweet-stream" class="list-group">
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">{{headline}}</h4>
+        </li>
+
+        {{#if newTweets.count}}
+          <li class="list-group-item tweet">
+            <p>
+              There are {{newTweets.count}} new tweets!
+              <a class="show-new-tweets">Show</a>
+            </p>
+          </li>
+        {{/if}}
+        {{#each tweets}}
+          {{> tweet}}
+        {{/each}}
+
+        <li class="list-group-item load-more">
+          <a href="#">Load more tweets</a>
+        </li>
+      </ul>
+    </div>
+</template>
