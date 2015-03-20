@@ -26,7 +26,11 @@
 
     <ul class="nav navbar-nav navbar-right">
       <!-- follow button -->
+      {{#if following}}
+      <li class="unfollow-me"><button class="btn btn-primary"><i class="fa fa-minus"></i>&nbsp; Unfollow</button></li>
+      {{else}}
       <li class="follow-me"><button class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Follow</button></li>
+      {{/if}}
     </ul>
 
     <!-- following button -->
@@ -46,12 +50,12 @@
       <div class="profile-information">
         <img src="https://pbs.twimg.com/profile_images/484387570214645761/BFPL5V4G_400x400.jpeg" alt="" class="profile-image">
 
-        <h3 class="username">amanda saffer</h3>
-        <span class="handle">@12pixels</span>
-        <p class="user-profile-description">designs &amp; develops websites. spends a lot of time in photoshop. likes science, cats, and magic the gathering.</p>
+        <h3 class="username">{{user.profile.name}}</h3>
+        <span class="handle">@{{user.username}}</span>
+        <p class="user-profile-description">{{user.description}}</p>
 
         <ul class="user-profile-info">
-          <li><i class="fa fa-fw fa-map-marker"></i> Austin, TX</li>
+          <li><i class="fa fa-fw fa-map-marker"></i> {{user.location}}</li>
           <li><i class="fa fa-fw fa-link"></i> <a href="http://amandasaffer.com">amandasaffer.com</a></li>
           <li><i class="fa fa-fw fa-clock-o"></i> Joined April 05, 2014</li>
         </ul>
