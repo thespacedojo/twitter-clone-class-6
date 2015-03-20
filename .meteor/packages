@@ -11,3 +11,5 @@ iron:router
 twbs:bootstrap
 stylus
 fortawesome:fontawesome
+useraccounts:bootstrap
+accounts-password
