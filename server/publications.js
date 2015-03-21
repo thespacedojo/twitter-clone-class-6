@@ -62,6 +62,13 @@ Meteor.publish('profileTweets', function(username) {
   return Tweets.find({userId: user._id});
 });
 
+Meteor.publish('mentions', function() {
+  tweetsCursor = Tweets.find({mentionIds: {$in: [this.userId]}});
+  userIds = _.pluck(tweetsCursor.fetch(), "userId");
+  usersCursor = Users.find({_id: {$in: userIds}}, {fields: {username: 1, "profile.name": 1}});
+  return [tweetsCursor, usersCursor];
+});
+
 Meteor.publish('usernames', function(selector, options, colName) {
   self = this;
   _.extend(options, {fields: {username: 1}});
