@@ -71,6 +71,10 @@ Meteor.publish('mentions', function() {
   return [tweetsCursor, usersCursor];
 });
 
+Meteor.publish('images', function() {
+  return Images.find();
+});
+
 Meteor.publish('usernames', function(selector, options, colName) {
   self = this;
   _.extend(options, {fields: {username: 1}});

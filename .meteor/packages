@@ -17,3 +17,9 @@ dburles:collection-helpers
 msavin:mongol
 pfafman:coffee-alerts
 mizzao:autocomplete
+aldeed:simple-schema
+aldeed:autoform
+aldeed:collection2
+cfs:standard-packages
+cfs:gridfs
+abdj:autoform-file

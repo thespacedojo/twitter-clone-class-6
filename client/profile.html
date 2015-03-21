@@ -48,11 +48,11 @@
 
       <!-- profile info - photo, description, location, website, etc. -->
       <div class="profile-information">
-        <img src="https://pbs.twimg.com/profile_images/484387570214645761/BFPL5V4G_400x400.jpeg" alt="" class="profile-image">
+        <img src="{{user.profileImage}}" alt="" class="profile-image">
 
         <h3 class="username">{{user.profile.name}}</h3>
         <span class="handle">@{{user.username}}</span>
-        <p class="user-profile-description">{{user.description}}</p>
+        <p class="user-profile-description">{{user.profile.description}}</p>
 
         <ul class="user-profile-info">
           <li><i class="fa fa-fw fa-map-marker"></i> {{user.location}}</li>
