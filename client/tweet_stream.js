@@ -13,3 +13,22 @@ Template.tweetStream.events({
     });
   }
 });
+
+Template.tweetStream.helpers({
+  settings: function() {
+    return {
+      position: "bottom",
+      limit: 5,
+      rules: [
+        {
+          token: "@",
+          collection: "Users",
+          field: "username",
+          subscription: 'usernames',
+          matchAll: true,
+          template: Template.userPill
+        }
+      ]
+    };
+  }
+});

@@ -35,7 +35,7 @@
           <!-- compose a tweet -->
           <div class="panel-footer">
             <form id="tweetForm">
-              <input type="text" class="form-control tweet-text" placeholder="Compose new Tweet...">
+              {{> inputAutocomplete settings=settings class="form-control tweet-text" placeholder="Compose new Tweet..."}}
               <div class="row">
                 <input type="submit" class="btn btn-default btn-xs pull-right tweet-btn" value="Tweet">
               </div>
@@ -85,4 +85,8 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="userPill">
+  <span class="label label-warning">{{username}}</span>
 </template>
