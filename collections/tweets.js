@@ -17,10 +17,25 @@ processTweet = function(text) {
   }
 };
 
+linkTweet = function(text) {
+  if (Meteor.isServer) {
+    if (_.contains(text, "@")) {
+      mentions = _.select(text.split(" "), function(string) {
+        return _.contains(string, "@");
+      });
+      _.each(mentions, function(username) {
+        text = text.replace(username, '<a href="/u/' + username.substring(1) + '">' + username + '</a>');
+      });
+    }
+    return text;
+  }
+};
+
 Tweets.before.insert(function(userId, doc) {
   doc.tweetedAt = new Date();
   doc.userId = userId;
   doc.mentionIds = processTweet(doc.text);
+  doc.linkedText = linkTweet(doc.text);
 });
 
 Tweets.helpers({
