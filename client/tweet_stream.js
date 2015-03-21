@@ -2,7 +2,10 @@ Template.tweetStream.events({
   "submit #tweetForm": function(event, template) {
     event.preventDefault();
     tweetText = template.$('#tweetForm .tweet-text').val();
-    Tweets.insert({text: tweetText}, function(err, res) {
+    loc = {};
+    if (Session.get('location'))
+      loc = {lat: Session.get('location').coords.latitude, long: Session.get('location').coords.longitude}
+    Tweets.insert({text: tweetText, location: loc}, function(err, res) {
       if (res) {
         CoffeeAlerts.success("Your tweet has been added.");
         template.$('.tweet-text').val(null);

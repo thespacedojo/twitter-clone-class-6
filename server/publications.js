@@ -1,4 +1,6 @@
 Meteor.publish('myTweets', function() {
+  if (!this.userId)
+    return [];
   var userCursor = Users.find({_id: this.userId});
   var user = userCursor.fetch()[0];
   var cursors = [];
